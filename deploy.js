@@ -21,10 +21,12 @@ const files = getFiles(angularSourcePath);
 
 // Prepare the payload for StackBlitz API
 const payload = {
+  project: {
     files,
     title: "Deployed Angular Source Code",
     description: "Editable Angular App on StackBlitz",
     template: "angular-cli"
+  }
 };
 
 // Upload to StackBlitz
