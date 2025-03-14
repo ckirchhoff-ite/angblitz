@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies
         run: npm install @stackblitz/sdk fs path
 
+      - name: Install dependencies
+        run: npm install axios
+
       - name: Deploy to StackBlitz
         run: node deploy.js
 
