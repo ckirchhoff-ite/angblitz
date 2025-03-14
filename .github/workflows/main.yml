@@ -1,4 +1,4 @@
-name: Deploy Source Code to StackBlitz
+name: Deploy to GitHub Pages
 
 on:
   workflow_dispatch
@@ -10,20 +10,18 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          ref: main # Checkout the specified branch
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "18"
 
-      - name: Install dependencies
-        run: npm install @stackblitz/sdk fs path
-
-      - name: Install dependencies
-        run: npm install axios
-
-      - name: Deploy to StackBlitz
+      - name: Prepare Deployment Files
         run: node deploy.js
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
 

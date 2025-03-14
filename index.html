@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular StackBlitz</title>
+    <script src="https://unpkg.com/@stackblitz/sdk"></script>
+</head>
+<body>
+    <h1>Click below to open the project in StackBlitz</h1>
+    <button onclick="openStackBlitz()">Open in StackBlitz</button>
+
+    <script>
+        function openStackBlitz() {
+            const files = {
+                "src/main.ts": "console.log('Hello from StackBlitz!');",
+                "angular.json": `{ "version": 1, "projects": { "app": {} } }`
+            };
+
+            stackblitz.openProject({
+                files,
+                title: "Deployed Angular App",
+                description: "Editable Angular project in StackBlitz",
+                template: "angular-cli"
+            });
+        }
+    </script>
+</body>
+</html>
+
