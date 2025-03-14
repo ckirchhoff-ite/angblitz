@@ -1,0 +1,26 @@
+name: Deploy Source Code to StackBlitz
+
+on:
+  workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: main # Checkout the specified branch
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm install @stackblitz/sdk fs path
+
+      - name: Deploy to StackBlitz
+        run: node deploy.js
+
