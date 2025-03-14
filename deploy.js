@@ -1,6 +1,6 @@
-import { openProject } from "@stackblitz/sdk";
-import fs from "fs";
-import path from "path";
+const stackblitz = require("@stackblitz/sdk");
+const fs = require("fs");
+const path = require("path");
 
 // Function to read all files from a directory recursively
 function getFiles(dir, fileList = {}) {
@@ -19,7 +19,7 @@ function getFiles(dir, fileList = {}) {
 const angularSourcePath = "src"; // Change this to your source code folder
 const files = getFiles(angularSourcePath);
 
-openProject({
+stackblitz.openProject({
     files,
     title: "Deployed Angular Source Code",
     description: "Editable Angular App on StackBlitz",
